@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<body>
+<div id="googleMap" style="width:500px;height:380px;"></div>
+
+<input id="origin-input" class="controls" type="text"
+        placeholder="Enter an origin location">
+
+    <input id="destination-input" class="controls" type="text"
+        placeholder="Enter a destination location">
+</body>
+<script src="http://maps.googleapis.com/maps/api/js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&libraries=places"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDW9Gyntxgty76v8XF856RaDlTo-bSj44I
+&signed_in=true&libraries=places&callback=initMap"
+        async defer></script>
+
+<script>
+lat = position.coords.latitude;			// current position
+lon = position.coords.longitude;
+latlon = new google.maps.LatLng(lat, lon);
+
+function initialize()
+{
+var mapProp = {
+  center:latlon,
+  zoom:4,
+  mapTypeId:google.maps.MapTypeId.ROADMAP
+  };
+  
+var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+</head>
+</html>

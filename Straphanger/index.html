@@ -1,0 +1,44 @@
+<?php
+require_once "dbcon.php";
+?>
+<html >
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+	<title>Home</title>
+    <script src="js/newprefix.min.js"></script>	
+	<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+	
+  </head>
+  <body>
+<script>
+		function formRequired() {
+			var inputName=document.forms['loginFormName']['user'].value;
+			var inputPass=document.forms['loginFormName']['password'].value;
+			if(inputName="" && inputPass="") {
+				alert('Enter Username and Password');
+				return false;
+			}
+		}
+		</script>
+    <div class="body"></div>
+		<div class="grad"></div>
+		<div class="header">
+			<div>Strap<span>hanger</span></div>
+		</div>
+		<br>
+		<div class="login">
+		<form id="loginForm" name="loginFormName" action="insertUser.php" method="POST" onsubmit="return formRequired();">
+				<div class="loginHeader">Login<span> to begin</span></div>
+				<p id="loginError" name="loginError"></p>
+				<input type="text" placeholder="username" name="user" autofocus/><br>
+				<input type="password" placeholder="password" name="password"/><br>
+				<input type="submit" value="Login as user" name="login"/>
+				<input type="submit" value="Login as driver" name="driver"/>
+				<br><a class="asign" href="signup.html">Sign Up</a><a href="" style="padding-left:20px">Forgot password?</a>
+		</form>
+		</div>
+		
+    	
+  </body>
+</html>

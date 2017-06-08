@@ -1,0 +1,19 @@
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDW9Gyntxgty76v8XF856RaDlTo-bSj44I
+&signed_in=true&libraries=places&callback=initMap"
+         defer></script>
+<script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&libraries=geometry"></script>
+<script>
+var p1 = new google.maps.LatLng(45.463688, 9.18814);
+var p2 = new google.maps.LatLng(46.0438317, 9.75936230000002);
+
+alert(calcDistance(p1, p2));
+
+//calculates distance between two points in km's
+function calcDistance(p1, p2){
+  return (google.maps.geometry.spherical.computeDistanceBetween(p1, p2) / 1000).toFixed(2);
+}
+
+</script>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<?php
+require_once "dbcon.php";
+?>
+<html >
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/signup-style.css">
+	<title>Sign Up</title>
+    <script src="js/newprefix.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+  </head>
+
+  <body>
+	<div id="loadajax">
+    <div class="body"></div>
+		<div class="grad"></div>
+		<div class="header">
+			<div>Strap<span>hanger</span></div>
+		</div>
+		<br>
+		<div class="login" id="login">
+		<form id="loginForm" action="insertUser.php" method="POST">
+				<div class="loginHeader">Create new<span> account</span></div>
+				<label>Select your category : </label>
+				<select id="signupType" name="signupName">
+					<option value="User">User</option>
+					<option value="Driver">Driver</option>
+				</select>
+				<input type="text" placeholder="First Name" name="fname" required pattern="^[a-zA-Z ]*$" autofocus/>
+				<input type="text" placeholder="Last Name" name="lname" required pattern="^[a-zA-Z ]*$">
+				<input type="email" placeholder="Email ID" name="emailId" required>
+				<input type="tel" placeholder="Contact Number" name="contact"><br>
+				<input type="password" placeholder="Enter password" name="loginpwd" required>
+				<input type="password" placeholder="Re-enter password" name="matchpwd" required><br>
+				<input type="text" placeholder="Postal code" name="pincode" pattern="^([0-9]{5})(?:[-\s]*([0-9]{4}))?$"><br>
+				
+				<input type="submit" value="Done" name="done">
+		</form>
+		</div>
+    <script>
+		$(document).ready(function() {
+			$('#signupType').change(function() {
+				var selectValue = $('#signupType').val();
+				if(selectValue == 'Driver') {			
+					$('#loadajax').load('sign-driver.html');
+				}
+			});
+		});
+	
+	</script>
+	</div>
+	
+  </body>
+</html>

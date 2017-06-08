@@ -1,0 +1,55 @@
+<?php
+include_once("dbcon.php");
+
+?>
+<html>
+<body onload="initialize()"><div id="map_canvas"></div></body>
+
+<script>
+var map;
+function initialize() 
+  {
+    var latloncenter = new google.maps.LatLng(51,-1.4469157);
+    var myOptions = 
+    {
+      zoom: 4,
+      center: latloncenter,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    }
+    map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+
+	<? 
+	
+	$query = mysql_query("SELECT * FROM poi_example");
+	while($row = mysql_fetch_assoc($query)){?>
+
+      var lon = "<?php echo($row['lon']); ?>"; 
+      var lat = "<?php echo($row['lat']); ?>"; 
+
+
+     alert_test(lat,lon);
+     //setmarker(lat,lon);
+
+<? } ?>
+  }
+
+function setmarker(lat,lon) {
+var latlongMarker = new google.maps.LatLng(lat,lon);
+
+var marker = new google.maps.Marker
+    (
+        {
+            position: latlongMarker, 
+            map: map,
+            title:"Hello World!"
+        }
+    ); 
+
+}
+
+function alert_test(lat,lon)
+{
+    alert(lat +" "+ lon);
+}
+</script>
+</html>
